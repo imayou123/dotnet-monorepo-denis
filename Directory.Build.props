@@ -1,0 +1,5 @@
+<Project>
+ <PropertyGroup>
+   <StandaloneCompilation>false</StandaloneCompilation>
+ </PropertyGroup>
+</Project>
