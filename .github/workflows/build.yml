@@ -45,7 +45,7 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}          
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"monorepo-test-shared" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}" /d:sonar.projectName='monorepo-test-shared'
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"monorepo-test-shared" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}" 
           cd Shared 
           dotnet build
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"  
@@ -55,7 +55,7 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}          
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"monorepo-test-client1" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}" /d:sonar.projectName='monorepo-test-client1'
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"monorepo-test-client1" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}" 
           cd Client1 
           dotnet build
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"  
@@ -65,7 +65,7 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}          
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"monorepo-test-client2" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}" /d:sonar.projectName='monorepo-test-client2'
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"monorepo-test-client2" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}" 
           cd Client2 
           dotnet build
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"            
