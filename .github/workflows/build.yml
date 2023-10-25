@@ -45,27 +45,24 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}          
         shell: powershell
         run: |
-          cd Shared 
-          ..\.sonar\scanner\dotnet-sonarscanner begin /k:"monorepo-test-shared" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}" 
-          dotnet build
-          ..\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"  
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"monorepo-test-shared" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}" 
+          dotnet build .\Shared\Shared.sln
+          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"  
       - name: Build and analyze Client1
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}          
         shell: powershell
-        run: |
-          cd Client1 
-          ..\.sonar\scanner\dotnet-sonarscanner begin /k:"monorepo-test-client1" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}" 
-          dotnet build
-          ..\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"  
+        run: |          
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"monorepo-test-client1" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}" 
+          dotnet build .\client1\client1.sln
+          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"  
       - name: Build and analyze Client2
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}          
         shell: powershell
-        run: |
-          cd Client2 
-          ..\.sonar\scanner\dotnet-sonarscanner begin /k:"monorepo-test-client2" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}" 
-          dotnet build
-          ..\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"            
+        run: |          
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"monorepo-test-client2" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}" 
+          dotnet build .\client2\client2.sln
+          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"            
